@@ -5,6 +5,7 @@ from generate_arbo import generate_arbo
 from generate_auth_php import generate_auth_php
 from generate_login_php import generate_login_php
 from generate_checker_php import generate_checker_php
+from generate_modules_index_php import generate_modules_index_php
 
 def generate_files():
     directory_path = directory_var.get()
@@ -18,6 +19,7 @@ def generate_files():
         generate_auth_php(directory_path, main_domain)
         generate_login_php(directory_path, modules_index_title, full_body_tag, main_domain)
         generate_checker_php(directory_path, main_domain)
+        generate_modules_index_php(directory_path, modules_index_title, full_body_tag, main_domain)
 
         result_label.config(text="Modules files have been generated.")
 
