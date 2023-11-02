@@ -4,7 +4,7 @@ def generate_checker_php(directory_path, main_domain):
 
 session_start();
 if (!isset($_SESSION['authenticated']) || !$_SESSION['authenticated']) {{
-    header('Location: https://www.{main_domain}/modules/login.php'); // Redirect to the login page if not authenticated
+    header('Location: modules/login.php'); // Redirect to the login page if not authenticated
     exit;
 }}
 
