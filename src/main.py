@@ -1,14 +1,18 @@
 import tkinter as tk
+import time
 from tkinter import filedialog
 from generate_arbo import generate_arbo
+from generate_auth_php import generate_auth_php
 
 def generate_files():
     directory_path = directory_var.get()
+    main_domain = main_domain_entry.get()
 
-    if all([directory_path]):
+    if all([directory_path, main_domain]):
         # Generate tree path
         generate_arbo(directory_path)
-        
+        generate_auth_php(directory_path, main_domain)
+
         result_label.config(text="Modules files have been generated.")
 
         print("\Modules files well generated, don't forget to minify !")
@@ -35,6 +39,11 @@ directory_entry.pack()
 
 select_directory_button = tk.Button(app, text="Browse", command=select_directory)
 select_directory_button.pack()
+
+main_domain_label = tk.Label(app, text="Enter the main domain (e.g. dariusdev.fr, without www. !) :")
+main_domain_label.pack()
+main_domain_entry = tk.Entry(app)
+main_domain_entry.pack()
 
 blank_label = tk.Label(app, text="")
 blank_label.pack()
